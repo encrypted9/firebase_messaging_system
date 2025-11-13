@@ -67,13 +67,13 @@ class _MyHomePageState extends State<MyHomePage> {
       sound: true,
     );
 
-    // Handle foreground messages - DIFFERENT STYLES FOR REGULAR VS IMPORTANT
+    
     FirebaseMessaging.onMessage.listen((RemoteMessage event) {
       print("message received");
       print(event.notification!.body);
       print(event.data.values);
 
-      // Check notification type from custom data
+      
       String notificationType = event.data['type'] ?? 'regular';
       bool isImportant = notificationType == 'important';
 
@@ -81,10 +81,10 @@ class _MyHomePageState extends State<MyHomePage> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            // DIFFERENT BACKGROUND COLORS
+            
             backgroundColor: isImportant ? Colors.red[50] : Colors.blue[50],
             
-            // DIFFERENT TITLE STYLES WITH ICONS
+            
             title: Row(
               children: [
                 Icon(
